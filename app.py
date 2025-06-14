@@ -6,7 +6,7 @@ import tempfile
 import uvicorn
 from utils import generate_answer
 from fastapi.middleware.cors import CORSMiddleware
-
+app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # OR restrict to portal origin
@@ -14,7 +14,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app = FastAPI()
 
 class QuestionRequest(BaseModel):
     question: str
